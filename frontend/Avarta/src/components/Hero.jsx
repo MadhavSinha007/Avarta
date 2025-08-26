@@ -2,17 +2,51 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="h-screen flex flex-col justify-center items-center text-center bg-black text-white px-6">
-      <h1 className="text-5xl font-bold mb-4">Welcome to ASTRA</h1>
-      <p className="text-lg mb-6 max-w-2xl">
+    <section style={styles.section}>
+      <h1 style={styles.heading}>Welcome to ASTRA</h1>
+      <p style={styles.paragraph}>
         Identify your trash type instantly (paper, plastic, etc.) and get 
         nearby recycling plant locations or DIY recycling tips at home.
       </p>
-      <button className="px-6 py-2 bg-white text-black rounded-md hover:bg-gray-200">
-        Get Started
-      </button>
+      <button style={styles.button}>Get Started</button>
     </section>
   );
+};
+
+const styles = {
+  section: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    backgroundColor: "black",
+    color: "white",
+    padding: "0 24px",
+  },
+  heading: {
+    fontSize: "3rem",
+    fontWeight: "bold",
+    marginBottom: "16px",
+  },
+  paragraph: {
+    fontSize: "1.125rem",
+    marginBottom: "24px",
+    maxWidth: "640px",
+  },
+  button: {
+    padding: "12px 24px",
+    backgroundColor: "white",
+    color: "black",
+    borderRadius: "8px",
+    border: "none",
+    cursor: "pointer",
+    transition: "background-color 0.3s",
+  },
+  buttonHover: {
+    backgroundColor: "#e5e5e5",
+  },
 };
 
 export default Hero;
