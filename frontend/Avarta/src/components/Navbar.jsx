@@ -1,18 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
-      <h1 className="navbar-title">ASTRA</h1>
-      <div className="navbar-links">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+      <div className="navbar-container">
+        {/* Logo section */}
+        <div className="navbar-logo">
+          <img
+            src="/assets/logo.png"
+            alt="Warta Logo"
+            className="logo-image"
+          />
+        </div>
+
+        {/* Navigation links - Desktop */}
+        <div className="navbar-right">
+          <div className="navbar-links">
+            <Link to="/">Home</Link>
+            <Link to="/about">About us</Link>
+            <Link to="/how-it-works">How It Works</Link>
+          </div>
+          <div className="navbar-auth">
+            <button className="login-btn">
+              Login to get started <span className="arrow">→</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu button */}
+        <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+          <span className={`hamburger ${isMobileMenuOpen ? "open" : ""}`}></span>
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? "open" : ""}`}>
+        <div className="mobile-links">
+          <Link to="/" onClick={closeMobileMenu}>Home</Link>
+          <Link to="/about" onClick={closeMobileMenu}>About us</Link>
+          <Link to="/how-it-works" onClick={closeMobileMenu}>How It Works</Link>
+          <button className="mobile-login-btn" onClick={closeMobileMenu}>
+            Login to get started <span className="arrow">→</span>
+          </button>
+        </div>
       </div>
     </nav>
   );
 };
 
 export default Navbar;
-// CSS file: Navbar.css
