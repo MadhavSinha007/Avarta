@@ -1,0 +1,77 @@
+.values-section {
+    background: #fff;
+    text-align: center;
+    padding: 80px 50px;
+  }
+  
+  .values-header {
+    max-width: 800px;
+    margin: 0 auto 60px;
+  }
+  
+  .values-tag {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .values-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #25a92a;
+    margin-bottom: 20px;
+  }
+  
+  .values-subtext {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .value-card {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .value-icon {
+    font-size: 40px;
+    color: #25a92a;
+    margin-bottom: 15px;
+  }
+  
+  .value-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .value-text {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  .values-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+  

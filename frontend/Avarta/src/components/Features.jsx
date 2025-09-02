@@ -1,22 +1,58 @@
+// ValuesSection.js
 import React from "react";
+import { FaLeaf, FaRecycle, FaUsers } from "react-icons/fa";
+import "./Features.css";
 
 const Features = () => {
   return (
-    <section style={{ padding: "80px 0", backgroundColor: "black", color: "white", textAlign: "center" }}>
-      <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "40px" }}>Features</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px", maxWidth: "800px", margin: "0 auto" }}>
-        <div>
-          <h3 style={{ fontSize: "20px", fontWeight: "600", marginBottom: "8px" }}>Trash Identification</h3>
-          <p>Snap a photo or enter details, and ASTRA tells you the material type.</p>
+    <section className="values-section">
+      {/* Top Heading */}
+      <div className="values-header">
+        <p className="values-tag">Values</p>
+        <h2 className="values-title">
+          Our Commitment to a Sustainable Future
+        </h2>
+        <p className="values-subtext">
+          At Avarta, we believe in a cleaner planet. Our core values drive us to
+          innovate and simplify recycling for everyone.
+        </p>
+      </div>
+
+      {/* Values Grid */}
+      <div className="values-grid">
+        <div className="value-card">
+          <FaLeaf className="value-icon" />
+          <h3 className="value-title">Sustainability is at Our Core</h3>
+          <p className="value-text">
+            We prioritize eco-friendly practice in everything we do.
+          </p>
         </div>
-        <div>
-          <h3 style={{ fontSize: "20px", fontWeight: "600", marginBottom: "8px" }}>Nearby Recycle Plants</h3>
-          <p>Get directions to the closest certified recycling centers.</p>
+
+        <div className="value-card">
+          <FaRecycle className="value-icon" />
+          <h3 className="value-title">Innovation Fuels Our Solutions</h3>
+          <p className="value-text">
+            We use modern technology to make recycling smarter.
+          </p>
         </div>
-        <div>
-          <h3 style={{ fontSize: "20px", fontWeight: "600", marginBottom: "8px" }}>DIY Recycling</h3>
-          <p>Learn how to creatively recycle at home with simple DIY guides.</p>
+
+        <div className="value-card">
+          <FaUsers className="value-icon" />
+          <h3 className="value-title">Simplicity Makes Recycling Accessible</h3>
+          <p className="value-text">
+            Our user-friendly platform empowers everyone to recycle.
+          </p>
         </div>
+      </div>
+
+      {/* Buttons */}
+      <div className="values-buttons">
+        <button className="hero-btn green">
+          Login to get started <span className="arrow">→</span>
+        </button>
+        <button className="hero-btn white">
+          Learn more <span className="arrow">→</span>
+        </button>
       </div>
     </section>
   );
