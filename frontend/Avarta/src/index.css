@@ -1,11 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Light theme (default) */
+body {
+  background-color: #f8fdf8;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body {
-  background: black;
-  color: white;
-  font-family: Arial, sans-serif;
+/* Dark theme */
+body.dark-theme {
+  background-color: #0D0D0D;
+  color: #CCCCCC; /* Normal text */
 }

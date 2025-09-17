@@ -30,7 +30,7 @@ const Navbar = () => {
           <div className="navbar-links">
             <Link to="/">Home</Link>
             <Link to="/about">About us</Link>
-            <Link to="/how-it-works">How It Works</Link>
+            <Link to="/howitworks">How It Works</Link>
           </div>
           <div className="navbar-auth">
             <button className="login-btn">
