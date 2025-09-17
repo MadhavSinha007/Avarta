@@ -1,7 +1,7 @@
 // StepsSection.js
 import React from "react";
 import { FaRecycle, FaUpload, FaMapMarkerAlt } from "react-icons/fa";
-import "./Steps.css";
+import "./HowItWorks.css";
 
 const HowItWorks = () => {
   return (
@@ -23,7 +23,7 @@ const HowItWorks = () => {
           <p className="step-text">
             Our approach simplifies recycling making it accessible for everyone.
           </p>
-          <button className="hero-btn white">
+          <button className="step-btn">
             Learn more <span className="arrow">→</span>
           </button>
         </div>
@@ -36,7 +36,7 @@ const HowItWorks = () => {
           <p className="step-text">
             Easily upload images of your items to get started.
           </p>
-          <button className="hero-btn white">
+          <button className="step-btn">
             Upload <span className="arrow">→</span>
           </button>
         </div>
@@ -49,7 +49,7 @@ const HowItWorks = () => {
           <p className="step-text">
             Use our maps feature to locate the recycling center nearby.
           </p>
-          <button className="hero-btn white">
+          <button className="step-btn">
             Upload <span className="arrow">→</span>
           </button>
         </div>

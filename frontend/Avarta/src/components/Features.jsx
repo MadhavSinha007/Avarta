@@ -50,7 +50,7 @@ const Features = () => {
         <button className="hero-btn green">
           Login to get started <span className="arrow">→</span>
         </button>
-        <button className="hero-btn white">
+        <button className="step-btn">
           Learn more <span className="arrow">→</span>
         </button>
       </div>
