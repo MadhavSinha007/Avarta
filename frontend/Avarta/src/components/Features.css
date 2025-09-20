@@ -1,54 +1,90 @@
+/* Values/Features Section - Matching Hero Style */
 .values-section {
-  background: #fff;
-  padding: 100px;
+  background: #000000;
+  padding: 120px 100px;
+  position: relative;
+  overflow: hidden;
+  color: white;
 }
 
+.values-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(37, 169, 42, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Header Section */
 .values-header {
   max-width: 800px;
-  margin: 0 auto 70px;
+  margin: 0 auto 80px;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .values-tag {
-  font-size: 14px;
+  display: inline-block;
+  background: #25a92a;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #25a92a;
-  margin-bottom: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+  margin-bottom: 1rem;
 }
 
 .values-title {
-  font-size: 38px;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 20px;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
   line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
 .values-subtext {
-  font-size: 18px;
-  color: #444;
-  line-height: 1.6;
-  max-width: 600px;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #b0b0b0;
   margin: 0 auto;
+  max-width: 600px;
+  font-weight: 400;
 }
 
+/* Values Grid */
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
 }
 
+/* Value Cards */
 .value-card {
-  padding: 30px 25px;
-  border-radius: 12px;
-  background: #fff;
-  transition: all 0.3s ease;
+  padding: 50px 35px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(37, 169, 42, 0.1);
+  transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 .value-card::before {
@@ -56,142 +92,158 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px;
-  height: 100%;
-  background: #25a92a;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(180deg, rgba(37, 169, 42, 0.08) 0%, transparent 100%);
+  transition: height 0.5s ease;
+  z-index: 0;
 }
 
 .value-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(37, 169, 42, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(37, 169, 42, 0.15);
+  border-color: rgba(37, 169, 42, 0.3);
 }
 
 .value-card:hover::before {
-  opacity: 1;
+  height: 8px;
 }
 
+/* Value Icon */
 .value-icon {
   font-size: 48px;
   color: #25a92a;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease;
+  margin-bottom: 25px;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .value-card:hover .value-icon {
+  color: #1e8723;
   transform: scale(1.1);
 }
 
+/* Value Content */
 .value-title {
-  font-size: 20px;
+  font-size: 1.375rem;
   font-weight: 600;
-  color: #000;
+  color: #ffffff;
   margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+  line-height: 1.3;
 }
 
 .value-text {
-  font-size: 16px;
-  color: #555;
+  font-size: 1rem;
+  color: #b0b0b0;
   line-height: 1.6;
+  margin: 0;
+  z-index: 2;
+  position: relative;
 }
 
-/* Buttons */
+/* Buttons Section */
 .values-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 1rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
-.values-btn {
+.hero-btn,
+.step-btn {
   padding: 16px 32px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   border: none;
   outline: none;
 }
 
 /* Green Button */
-.values-btn.green {
+.hero-btn.green {
   background: #25a92a;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(37, 169, 42, 0.3);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(37, 169, 42, 0.3);
 }
 
-.values-btn.green:hover {
+.hero-btn.green:hover {
   background: #1e8723;
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(37, 169, 42, 0.4);
+  box-shadow: 0 6px 25px rgba(37, 169, 42, 0.4);
 }
 
-/* White Button (fixed) */
-.values-btn.white {
-  background: #fff;
-  color: #000;
-  border: 2px solid #25a92a;
-  box-shadow: 0 4px 12px rgba(37, 169, 42, 0.1);
+/* Secondary Button */
+.step-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.values-btn.white:hover {
-  background: #25a92a;
-  color: #fff;
+.step-btn:hover {
+  border-color: #25a92a;
+  color: #25a92a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(37, 169, 42, 0.3);
+  box-shadow: 0 4px 20px rgba(37, 169, 42, 0.2);
 }
 
-/* Arrow */
 .arrow {
-  font-size: 18px;
+  font-size: 1.2em;
   transition: transform 0.3s ease;
 }
 
-.values-btn:hover .arrow {
+.hero-btn:hover .arrow,
+.step-btn:hover .arrow {
   transform: translateX(4px);
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-  .values-section {
-    padding: 80px 60px;
-  }
-}
-
+/* Responsive Design - Matching Hero Section */
 @media (max-width: 1024px) {
   .values-section {
-    padding: 70px 50px;
+    padding: 100px 60px;
   }
   
   .values-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    margin-bottom: 70px;
   }
 }
 
 @media (max-width: 768px) {
   .values-section {
-    padding: 60px 40px;
-  }
-
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    max-width: 500px;
-    margin: 0 auto 50px;
-  }
-
-  .values-title {
-    font-size: 32px;
+    padding: 80px 40px;
   }
   
   .values-header {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+  }
+  
+  .values-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+  
+  .values-subtext {
+    font-size: 1rem;
+    margin: 1.5rem auto 0;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 60px;
+  }
+  
+  .value-card {
+    padding: 40px 30px;
   }
   
   .values-buttons {
@@ -199,23 +251,41 @@
     align-items: center;
   }
   
-  .values-btn {
-    width: 100%;
-    max-width: 280px;
+  .hero-btn,
+  .step-btn {
     justify-content: center;
+    min-width: 200px;
   }
 }
 
 @media (max-width: 480px) {
   .values-section {
-    padding: 50px 25px;
+    padding: 60px 20px;
   }
   
   .values-title {
-    font-size: 28px;
+    font-size: 2rem;
   }
   
   .values-subtext {
-    font-size: 16px;
+    font-size: 0.9rem;
+  }
+  
+  .value-card {
+    padding: 30px 25px;
+  }
+  
+  .value-icon {
+    font-size: 40px;
+  }
+  
+  .value-title {
+    font-size: 1.25rem;
+  }
+  
+  .hero-btn,
+  .step-btn {
+    padding: 14px 28px;
+    font-size: 0.9rem;
   }
 }

@@ -19,7 +19,7 @@ const Navbar = () => {
         {/* Logo section */}
         <div className="navbar-logo">
           <img
-            src="/assets/logo.png"
+            src="public/assets/logo.png"
             alt="Warta Logo"
             className="logo-image"
           />
