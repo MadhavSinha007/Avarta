@@ -1,24 +1,344 @@
-.about-page-section {
-    min-height: 80vh; /* leaves space for navbar + footer */
-    display: flex;
+/** === Enhanced Theme === **/
+:root {
+  --green: #25a92a;
+  --green-light: #32d43a;
+  --green-dark: #1e8722;
+  --green-glow: rgba(37, 169, 42, 0.3);
+  --black: #000000;
+  --gray: #1a1a1a;
+  --gray-light: #2a2a2a;
+  --gray-dark: #0f0f0f;
+  --light: #e0e0e0;
+  --muted: #a0a0a0;
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+/** === Enhanced Base === **/
+.how-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--black);
+}
+
+.how-sec {
+  padding: clamp(60px, 8vh, 100px) 8%;
+  position: relative;
+}
+
+.how-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.how-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 50px;
+  position: relative;
+  color: var(--green);
+  text-shadow: 0 0 10px var(--green-glow);
+}
+
+.how-title::after {
+  content: "";
+  display: block;
+  margin: 15px auto 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--green), var(--green-light), var(--green), transparent);
+  border-radius: 2px;
+}
+
+/** === Enhanced Hero === **/
+.how-hero {
+  background: 
+    radial-gradient(circle at 20% 80%, var(--green-glow) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--green-glow) 0%, transparent 50%),
+    linear-gradient(160deg, var(--black) 0%, var(--gray-dark) 70%, var(--green-dark) 100%);
+  padding: clamp(80px, 12vh, 150px) 8%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.how-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--green-light);
+  text-shadow: 0 0 15px var(--green-glow);
+}
+
+.how-hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  max-width: 700px;
+  margin: 20px auto 40px;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+.how-hero-tags {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.how-tag {
+  background: rgba(26, 26, 26, 0.8);
+  color: var(--green);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--green);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.how-tag:hover {
+  background: var(--green);
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--green-glow);
+}
+
+/** === Enhanced Workflow === **/
+.how-workflow {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.how-workflow::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 60px;
+  bottom: 60px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--green), transparent, var(--green));
+  opacity: 0.5;
+}
+
+.how-step {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.how-step-num {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--black);
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px var(--green-glow);
+  flex-shrink: 0;
+}
+
+.how-step-content {
+  background: linear-gradient(145deg, var(--gray), var(--gray-light));
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.how-step-content:hover {
+  border-color: var(--green);
+  box-shadow: 0 5px 20px var(--shadow);
+}
+
+.how-step-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border-left: 3px solid var(--green);
+}
+
+.how-step-item:last-child {
+  margin-bottom: 0;
+}
+
+.how-step-item h4 {
+  color: var(--green);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+/** === Benefits Section === **/
+.how-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.how-benefit {
+  background: linear-gradient(145deg, var(--gray), var(--gray-light));
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.how-benefit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--shadow);
+  border-color: var(--green);
+}
+
+.how-benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.how-benefit h3 {
+  color: var(--green);
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+/** === CTA Section === **/
+.how-cta {
+  text-align: center;
+  background: linear-gradient(160deg, var(--black) 0%, var(--gray-dark) 70%, var(--green-dark) 100%);
+}
+
+.how-cta-text {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.how-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.how-cta-btn {
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.how-cta-btn.primary {
+  background: var(--green);
+  color: var(--black);
+  border: 2px solid var(--green);
+}
+
+.how-cta-btn.primary:hover {
+  background: transparent;
+  color: var(--green);
+  box-shadow: 0 0 20px var(--green-glow);
+}
+
+.how-cta-btn.secondary {
+  background: transparent;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.how-cta-btn.secondary:hover {
+  background: var(--green);
+  color: var(--black);
+  box-shadow: 0 0 20px var(--green-glow);
+}
+
+/** === Enhanced Responsive === **/
+@media (max-width: 1024px) {
+  .how-sec {
+    padding: clamp(40px, 6vh, 80px) 6%;
+  }
+  
+  .how-benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-hero {
+    padding: clamp(60px, 8vh, 100px) 6%;
+  }
+  
+  .how-hero-tags {
+    gap: 10px;
+  }
+  
+  .how-tag {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .how-step {
     flex-direction: column;
-    justify-content: center;
+    gap: 15px;
+  }
+  
+  .how-workflow::before {
+    display: none;
+  }
+  
+  .how-step-num {
+    align-self: flex-start;
+  }
+  
+  .how-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .how-cta-buttons {
+    flex-direction: column;
     align-items: center;
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-sec {
+    padding: clamp(30px, 5vh, 60px) 4%;
   }
   
-  .about-page-title {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  .how-step-content,
+  .how-benefit {
+    padding: 20px;
   }
-  
-  .about-page-description {
-    max-width: 700px;
-    font-size: 18px;
-    line-height: 1.6;
+}
+
+/** === Accessibility === **/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  
+}

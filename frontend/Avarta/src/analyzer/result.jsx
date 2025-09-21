@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './result.css';
+import './reuslt.css';
 
 const Results = ({ wasteType }) => {
   const [recyclingCenters, setRecyclingCenters] = useState([]);
