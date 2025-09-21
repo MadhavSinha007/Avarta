@@ -32,9 +32,10 @@ const Navbar = () => {
             <Link to="/about">About us</Link>
             <Link to="/howitworks">How It Works</Link>
           </div>
+
           <div className="navbar-auth">
             <button className="login-btn">
-              Login to get started <span className="arrow">→</span>
+            <Link to="/login">Login to get started <span className="arrow">→</span> </Link>
             </button>
           </div>
         </div>

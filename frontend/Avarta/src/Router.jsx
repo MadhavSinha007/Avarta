@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/AboutPage';
 import HowItWorks from './pages/howitwork';
+import Login from './auth/Login';
+import Register from './auth/Register';
 
 const Router = () => {
   return (
@@ -14,6 +16,8 @@ const Router = () => {
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path='/howitworks' element={<HowItWorks />} />
+        <Route path="/login" element={<Login />} />
+        <Route path='/register' element={<Register />}  />
      
         
         {/* Add your pages in a Route component like these: */}

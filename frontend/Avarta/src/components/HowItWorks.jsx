@@ -5,7 +5,6 @@ import "./HowItWorks.css";
 const HowItWorks = () => {
   const steps = [
     {
-      id: 1,
       icon: <FaUpload className="step-icon" />,
       title: "Upload Items",
       text: "Take a photo or upload images of your recyclable items and get instant AI-powered feedback and guidance.",
@@ -13,7 +12,6 @@ const HowItWorks = () => {
       buttonLink: "#upload"
     },
     {
-      id: 2,
       icon: <FaRecycle className="step-icon" />,
       title: "Get Guidance",
       text: "Receive personalized recycling instructions and tips to ensure proper waste management for your items.",
@@ -21,7 +19,6 @@ const HowItWorks = () => {
       buttonLink: "#guidance"
     },
     {
-      id: 3,
       icon: <FaMapMarkerAlt className="step-icon" />,
       title: "Find Recyclers",
       text: "Use our smart locator tool to discover the nearest recycling centers and drop-off points in your area.",

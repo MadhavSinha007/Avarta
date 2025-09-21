@@ -117,11 +117,6 @@
   height: 8px;
 }
 
-/* Hide Step Number */
-.step-number {
-  display: none;
-}
-
 /* Icon Container */
 .step-icon-container {
   width: 90px;
