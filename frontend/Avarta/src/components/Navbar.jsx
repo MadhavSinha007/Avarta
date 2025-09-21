@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { doSignOut } from "../firebase/auth";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -11,6 +13,16 @@ const Navbar = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await doSignOut();
+      console.log('User signed out successfully');
+      navigate('/login');
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
   };
 
   return (
@@ -34,9 +46,8 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-auth">
-            <button className="login-btn">
-            <Link to="/login">Login to get started <span className="arrow">→</span> </Link>
-            </button>
+            <Link to="/login" className="login-btn">Login to get started <span className="arrow">→</span> </Link>
+            <button className="logout-btn" onClick={handleLogout}>Logout <span className="arrow">→</span> </button>
           </div>
         </div>
 

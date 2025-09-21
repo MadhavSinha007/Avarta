@@ -1,58 +1,194 @@
+/* Register Styles */
+.register-main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb;
+}
+
 .register-container {
-    background: #000;
-    color: #57D24B;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .register-box {
-    background: #111;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 15px rgba(87, 210, 75, 0.3);
-    width: 300px;
-    text-align: center;
-  }
-  
-  .register-box h2 {
-    margin-bottom: 20px;
-  }
-  
-  .register-box input {
+  width: 384px;
+  max-width: 90vw;
+  color: #6b7280;
+  background: white;
+  padding: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.register-title {
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  color: #6b7280;
+  background: transparent;
+  outline: none;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc2626;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #4f46e5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.submit-button:hover:not(.disabled) {
+  background-color: #4338ca;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.submit-button.disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.auth-link {
+  text-align: center;
+  font-size: 0.875rem;
+  margin: 1.25rem 0;
+}
+
+.link {
+  color: #4f46e5;
+  font-weight: 700;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 1.25rem 0;
+}
+
+.divider-line {
+  border-bottom: 2px solid #e5e7eb;
+  flex: 1;
+  height: 1px;
+}
+
+.divider-text {
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0 1rem;
+  white-space: nowrap;
+}
+
+.google-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.625rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.google-button:hover:not(.disabled) {
+  background-color: #f9fafb;
+}
+
+.google-button:active:not(.disabled) {
+  background-color: #f3f4f6;
+}
+
+.google-button.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.google-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .register-container {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 8px;
-    background: #222;
-    color: #fff;
-    outline: none;
+    margin: 1rem;
+    padding: 1rem;
   }
   
-  .register-box input:focus {
-    border: 1px solid #57D24B;
+  .register-title {
+    font-size: 1.25rem;
   }
   
-  .register-box button {
-    background: #57D24B;
-    border: none;
-    padding: 12px;
-    width: 100%;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+  .register-form {
+    gap: 0.875rem;
   }
-  
-  .register-box button:hover {
-    background: #45a93c;
-  }
-  
-  .error {
-    color: red;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
-  
+}
