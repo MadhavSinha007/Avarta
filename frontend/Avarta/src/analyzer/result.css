@@ -1,0 +1,81 @@
+.results-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .results-container h3 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+  }
+  
+  .results-container p {
+    color: #ccc;
+  }
+  
+  .loading {
+    color: #4CAF50;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .centers-list {
+    margin-bottom: 20px;
+  }
+  
+  .center-card {
+    background-color: #252525;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 3px solid #4CAF50;
+  }
+  
+  .center-card h4 {
+    color: #4CAF50;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .center-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  .distance, .hours {
+    background-color: #333;
+    color: #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .directions-btn {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .directions-btn:hover {
+    background-color: #3e8e41;
+  }
+  
+  .map-placeholder {
+    height: 200px;
+    background-color: #252525;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-style: italic;
+  }

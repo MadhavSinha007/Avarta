@@ -51,7 +51,7 @@ const Register = () => {
 
   return (
     <>
-      {userLoggedIn && <Navigate to="/login" replace={true} />}
+      {userLoggedIn && <Navigate to="/analyzer" replace={true} />}
       
       <main className="register-main">
         <div className="register-container">

@@ -44,7 +44,7 @@ const Login = () => {
 
   return (
     <div>
-      {userLoggedIn && <Navigate to="/about" replace={true} />}
+      {userLoggedIn && <Navigate to="/analyzer" replace={true} />}
       
       <main className="login-main">
         <div className="login-container">

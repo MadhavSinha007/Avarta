@@ -170,7 +170,7 @@
         }
 
         .logout-btn {
-            background: linear-gradient(135deg, #e4150e, #0b0ff8);
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: #ffffff;
             border: none;
             padding: 0.85rem 1.75rem;
@@ -182,11 +182,11 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.25);
             position: relative;
             overflow: hidden;
         }
-
+        
         .logout-btn::before {
             content: '';
             position: absolute;
@@ -197,22 +197,37 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.7s ease;
         }
-
+        
         .logout-btn:hover::before {
             left: 100%;
         }
-
+        
         .logout-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 255, 94, 0.4);
+            box-shadow: 0 6px 25px rgba(231, 76, 60, 0.4);
         }
-
-        .logout-btn .arrow {
+        
+        .logout-icon {
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* For emoji icons */
+        .logout-btn:hover .logout-icon {
+            transform: translateX(3px);
+        }
+        
+        /* For SVG icon */
+        .logout-icon svg {
+            width: 20px;
+            height: 20px;
             transition: transform 0.3s ease;
         }
-
-        .logout-btn:hover .arrow {
-            transform: translateX(4px);
+        
+        .logout-btn:hover .logout-icon svg {
+            transform: translateX(3px);
         }
 
         /* Mobile menu button */

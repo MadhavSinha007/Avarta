@@ -1,0 +1,59 @@
+.diy-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .diy-container h3 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+  }
+  
+  .diy-container p {
+    color: #ccc;
+  }
+  
+  .loading {
+    color: #4CAF50;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .ideas-list {
+    margin-top: 15px;
+  }
+  
+  .idea-card {
+    background-color: #252525;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 3px solid #4CAF50;
+  }
+  
+  .idea-card h4 {
+    color: #4CAF50;
+    margin-top: 0;
+  }
+  
+  .difficulty {
+    display: inline-block;
+    background-color: #333;
+    color: #ccc;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .idea-card ol {
+    color: #ccc;
+    padding-left: 20px;
+  }
+  
+  .idea-card li {
+    margin-bottom: 5px;
+  }
