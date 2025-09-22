@@ -47,7 +47,7 @@ const About = () => {
                   <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
                     <path 
                       d="M1 5L4 8L11 1" 
-                      stroke="#25a92a" 
+                      stroke="#4CAF50" 
                       strokeWidth="2" 
                       strokeLinecap="round" 
                       strokeLinejoin="round"
