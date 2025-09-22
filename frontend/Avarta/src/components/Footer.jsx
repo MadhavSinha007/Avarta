@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/authContext/index";
 import "./Footer.css";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const { userLoggedIn } = useAuth(); // Check authentication status
 
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (email) {
-      // Handle subscription logic here
       console.log("Subscribing email:", email);
       setEmail("");
-      // You can add success message or API call here
+      // Add API call or success message here
     }
   };
 
@@ -20,9 +22,9 @@ const Footer = () => {
         <div className="footer-content">
           {/* Logo Section */}
           <div className="footer-logo-section">
-            <img 
-              src="/assets/logo.png" 
-              alt="ASTRA Logo" 
+            <img
+              src="/assets/logo.png"
+              alt="ASTRA Logo"
               className="footer-logo"
             />
             <p className="footer-tagline">
@@ -35,14 +37,21 @@ const Footer = () => {
             <nav>
               <ul className="footer-nav-list">
                 <li className="footer-nav-item">
-                  <a href="#home" className="footer-nav-link">Home</a>
+                  <Link to="/" className="footer-nav-link">Home</Link>
                 </li>
                 <li className="footer-nav-item">
-                  <a href="#about" className="footer-nav-link">About Us</a>
+                  <Link to="/about" className="footer-nav-link">About Us</Link>
                 </li>
                 <li className="footer-nav-item">
-                  <a href="#how-it-works" className="footer-nav-link">How It Works</a>
+                  <Link to="/howitworks" className="footer-nav-link">How It Works</Link>
                 </li>
+
+                {/* Show Analyzer only if logged in */}
+                {userLoggedIn && (
+                  <li className="footer-nav-item">
+                    <Link to="/analyzer" className="footer-nav-link">Analyzer</Link>
+                  </li>
+                )}
               </ul>
             </nav>
           </div>
@@ -65,10 +74,12 @@ const Footer = () => {
                 </button>
               </form>
             </div>
-            
-            <a href="#login" className="login-btn">
-              Login to get started →
-            </a>
+
+            {!userLoggedIn && (
+              <Link to="/login" className="login-btn">
+                Login to get started →
+              </Link>
+            )}
           </div>
         </div>
 

@@ -345,3 +345,11 @@
     max-width: none;
   }
 }
+
+.footer-nav-link:focus,
+.login-btn:focus,
+.subscribe-btn:focus,
+.subscribe-input:focus {
+  outline: none;
+  box-shadow: none;
+}
