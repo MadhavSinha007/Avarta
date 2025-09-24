@@ -1,80 +1,260 @@
 .analyzer-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  background: #000000;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.analyzer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  background: #1a1a1a;
+  border: none;
+  color: #25a92a;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.analyzer-header h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.upload-options {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.upload-card {
+  background: #1a1a1a;
+  border: 2px dashed #25a92a;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-card:hover {
+  background: #25a92a;
+  color: #000000;
+}
+
+.upload-card svg {
+  color: #25a92a;
+  margin-bottom: 12px;
+}
+
+.upload-card:hover svg {
+  color: #000000;
+}
+
+.upload-card span {
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.upload-card p {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.image-preview-container {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.image-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.image-preview-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.remove-btn {
+  background: #333;
+  border: none;
+  color: #ff4444;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.preview-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.file-input {
+  display: none;
+}
+
+.camera-container {
+  background: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.camera-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #1a1a1a;
+}
+
+.camera-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.close-camera {
+  background: #333;
+  border: none;
+  color: #25a92a;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.camera-view {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+
+.camera-controls {
+  padding: 20px;
+  background: #1a1a1a;
+  text-align: center;
+}
+
+.capture-btn {
+  background: #25a92a;
+  border: none;
+  color: #000000;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message {
+  background: #331a1a;
+  color: #ff6b6b;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  border-left: 4px solid #ff6b6b;
+}
+
+.action-section {
+  padding: 20px 0;
+}
+
+.analyze-btn {
+  background: #25a92a;
+  color: #000000;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.analyze-btn:not(.disabled):hover {
+  background: #1e8c22;
+}
+
+.analyze-btn.disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid #000000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .analyzer-container {
+    padding: 16px;
   }
   
-  .analyzer-container h2 {
-    color: #4CAF50;
-    text-align: center;
-    margin-bottom: 10px;
+  .upload-options {
+    grid-template-columns: 1fr;
   }
   
-  .analyzer-container p {
-    color: #ccc;
-    text-align: center;
-    margin-bottom: 20px;
+  .upload-card {
+    padding: 24px 16px;
   }
   
-  .upload-section {
-    margin-bottom: 20px;
+  .camera-view {
+    height: 50vh;
   }
   
-  .upload-label {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #4CAF50;
-    border: 1px solid #4CAF50;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  .capture-btn {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .analyzer-header h2 {
+    font-size: 1.3rem;
   }
   
-  .upload-label:hover {
-    background-color: #4CAF50;
-    color: #1a1a1a;
+  .upload-card {
+    padding: 20px 12px;
   }
   
-  .file-input {
-    display: none;
-  }
-  
-  .image-preview {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .image-preview img {
-    max-width: 100%;
-    max-height: 300px;
-    border: 2px solid #4CAF50;
-    border-radius: 4px;
-  }
-  
-  .action-buttons {
-    text-align: center;
+  .upload-card span {
+    font-size: 1rem;
   }
   
   .analyze-btn {
-    padding: 12px 24px;
-    background-color: #4CAF50;
-    color: #1a1a1a;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 14px 20px;
+    font-size: 1rem;
   }
-  
-  .analyze-btn:hover:not(:disabled) {
-    background-color: #3e8e41;
-  }
-  
-  .analyze-btn:disabled {
-    background-color: #666;
-    cursor: not-allowed;
-  }
+}
