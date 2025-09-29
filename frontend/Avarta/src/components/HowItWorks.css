@@ -1,32 +1,53 @@
-/* How It Works Section - Pure White Background */
-.steps-section {
-  background: #ffffff;
+/* Eco Adventure Section - Lively Green Theme */
+.eco-adventure-section {
+  background: linear-gradient(135deg, #f8fff8 0%, #ffffff 50%, #f0f9f0 100%);
   padding: 120px 100px;
   position: relative;
   overflow: hidden;
-  color: #333333;
+  color: #1a3c1a;
 }
 
-.steps-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(37, 169, 42, 0.03) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.steps-container {
+.planet-protector-container {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
+/* Floating leaves animation */
+.floating-leaf {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.1;
+  z-index: 1;
+  animation: floatLeaf 6s ease-in-out infinite;
+}
+
+.floating-leaf-1 {
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.floating-leaf-2 {
+  top: 60%;
+  right: 8%;
+  animation-delay: 2s;
+}
+
+.floating-leaf-3 {
+  bottom: 20%;
+  left: 10%;
+  animation-delay: 4s;
+}
+
+@keyframes floatLeaf {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
 /* Header Section */
-.steps-header {
+.eco-wizard-header {
   max-width: 800px;
   margin: 0 auto 80px;
   text-align: center;
@@ -34,57 +55,65 @@
   z-index: 2;
 }
 
-.steps-tag {
+.green-badge {
   display: inline-block;
-  background: #25a92a;
+  background: linear-gradient(135deg, #25a92a, #32cd32);
   color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 12px 24px;
+  border-radius: 25px;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.05em;
-  width: fit-content;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(37, 169, 42, 0.3);
+  text-transform: uppercase;
 }
 
-.steps-title {
+.earth-lover-title {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2;
-  color: #1a1a1a;
+  color: #1a3c1a;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
 }
 
-.steps-subtext {
+.title-highlight {
+  background: linear-gradient(135deg, #25a92a, #32cd32);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.eco-whisper-text {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: #666666;
+  color: #4a6741;
   margin: 0 auto;
   max-width: 600px;
   font-weight: 400;
 }
 
 /* Steps Grid */
-.steps-grid {
+.recycle-rainbow-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
-  margin-bottom: 80px;
   position: relative;
   z-index: 2;
 }
 
 /* Step Cards */
-.step-card {
+.eco-wonder-card {
   padding: 50px 35px 40px;
-  border-radius: 20px;
-  background: #ffffff;
-  transition: all 0.4s ease;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
   box-shadow: 
-    0 8px 30px rgba(0, 0, 0, 0.08),
+    0 10px 40px rgba(37, 169, 42, 0.1),
     0 0 0 1px rgba(37, 169, 42, 0.05);
   text-align: center;
   display: flex;
@@ -93,100 +122,97 @@
   border: 2px solid transparent;
 }
 
-.step-card::before {
+.eco-wonder-card::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
-  height: 0;
-  background: linear-gradient(180deg, rgba(37, 169, 42, 0.05) 0%, transparent 100%);
-  transition: height 0.5s ease;
-  z-index: 0;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(37, 169, 42, 0.05), transparent);
+  transition: left 0.6s ease;
 }
 
-.step-card:hover {
-  transform: translateY(-8px);
+.eco-wonder-card:hover::before {
+  left: 100%;
+}
+
+.eco-wonder-card:hover {
+  transform: translateY(-12px) scale(1.02);
   box-shadow: 
-    0 20px 50px rgba(37, 169, 42, 0.15),
+    0 25px 60px rgba(37, 169, 42, 0.2),
     0 0 0 1px rgba(37, 169, 42, 0.1);
-  border-color: rgba(37, 169, 42, 0.2);
+  border-color: rgba(37, 169, 42, 0.3);
 }
 
-.step-card:hover::before {
-  height: 8px;
-}
-
-/* Icon Container */
-.step-icon-container {
-  width: 90px;
-  height: 90px;
+/* Icon Garden */
+.icon-garden {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: rgba(37, 169, 42, 0.1);
+  background: linear-gradient(135deg, rgba(37, 169, 42, 0.1), rgba(50, 205, 50, 0.1));
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
   position: relative;
-  transition: all 0.5s ease;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 2;
 }
 
-.step-icon-container::before {
-  content: '';
+.pulse-ring {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: rgba(37, 169, 42, 0.2);
-  transform: scale(0);
-  transition: transform 0.4s ease;
-}
-
-.step-card:hover .step-icon-container {
-  background: #25a92a;
-  transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(37, 169, 42, 0.3);
-}
-
-.step-card:hover .step-icon-container::before {
-  transform: scale(1.3);
+  border: 2px solid rgba(37, 169, 42, 0.3);
+  animation: pulseRing 2s ease-in-out infinite;
   opacity: 0;
-  transition: all 0.6s ease;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+.eco-wonder-card:hover .icon-garden {
+  background: linear-gradient(135deg, #25a92a, #32cd32);
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 15px 35px rgba(37, 169, 42, 0.4);
 }
 
 /* Icon */
-.step-icon {
-  font-size: 40px;
+.eco-step-icon {
+  font-size: 42px;
   color: #25a92a;
   transition: all 0.4s ease;
   position: relative;
   z-index: 1;
 }
 
-.step-card:hover .step-icon {
+.eco-wonder-card:hover .eco-step-icon {
   color: #ffffff;
   transform: scale(1.1);
 }
 
 /* Step Content */
-.step-title {
+.step-magic-title {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-weight: 700;
+  color: #1a3c1a;
   margin-bottom: 18px;
   position: relative;
   z-index: 2;
   transition: color 0.3s ease;
 }
 
-.step-card:hover .step-title {
+.eco-wonder-card:hover .step-magic-title {
   color: #25a92a;
 }
 
-.step-text {
+.eco-wisdom-text {
   font-size: 1rem;
-  color: #666666;
+  color: #4a6741;
   line-height: 1.6;
   margin-bottom: 30px;
   z-index: 2;
@@ -194,263 +220,118 @@
   transition: color 0.3s ease;
 }
 
-.step-card:hover .step-text {
-  color: #555555;
-}
-
 /* Step Button */
-.step-button {
+.green-glow-button {
   padding: 16px 32px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: #25a92a;
+  background: linear-gradient(135deg, #25a92a, #32cd32);
   color: #ffffff;
   border: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(37, 169, 42, 0.3);
+  box-shadow: 0 6px 25px rgba(37, 169, 42, 0.4);
   z-index: 2;
   text-decoration: none;
 }
 
-.step-button::before {
+.green-glow-button::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transition: left 0.6s ease;
 }
 
-.step-button:hover::before {
+.green-glow-button:hover::before {
   left: 100%;
 }
 
-.step-button:hover {
-  background: #1e8723;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(37, 169, 42, 0.4);
+.green-glow-button:hover {
+  background: linear-gradient(135deg, #1e8723, #28a428);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(37, 169, 42, 0.6);
 }
 
-.button-arrow {
+.magic-arrow {
   font-size: 1.2em;
   transition: transform 0.3s ease;
 }
 
-.step-button:hover .button-arrow {
-  transform: translateX(4px);
+.green-glow-button:hover .magic-arrow {
+  transform: translateX(6px) scale(1.2);
 }
 
-/* CTA Section */
-.steps-cta {
-  text-align: center;
-  padding: 50px 30px;
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1px solid #e5e5e5;
-  position: relative;
-  overflow: hidden;
-}
-
-.steps-cta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="1" fill="%2325a92a" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-  z-index: 0;
-}
-
-.steps-cta-content {
-  position: relative;
-  z-index: 1;
-}
-
-.steps-cta-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 15px;
-}
-
-.steps-cta-text {
-  font-size: 1rem;
-  color: #666666;
-  margin-bottom: 30px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.steps-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.steps-btn {
-  padding: 16px 32px;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  outline: none;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-}
-
-.steps-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.7s ease;
-}
-
-.steps-btn:hover::before {
-  left: 100%;
-}
-
-/* Green Button */
-.steps-btn.green {
-  background: #25a92a;
-  color: #ffffff;
-  box-shadow: 0 4px 20px rgba(37, 169, 42, 0.3);
-}
-
-.steps-btn.green:hover {
-  background: #1e8723;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(37, 169, 42, 0.4);
-}
-
-/* Outline Button */
-.steps-btn.outline {
-  background: transparent;
-  color: #25a92a;
-  border: 2px solid #25a92a;
-  box-shadow: 0 4px 15px rgba(37, 169, 42, 0.1);
-}
-
-.steps-btn.outline:hover {
-  background: #25a92a;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(37, 169, 42, 0.3);
-}
-
-/* Arrow */
-.arrow {
-  font-size: 1.2em;
-  transition: transform 0.3s ease;
-}
-
-.steps-btn:hover .arrow {
-  transform: translateX(4px);
-}
-
-/* Responsive Design - Matching Hero Section */
+/* Responsive Design */
 @media (max-width: 1024px) {
-  .steps-section {
+  .eco-adventure-section {
     padding: 100px 60px;
   }
   
-  .steps-grid {
+  .recycle-rainbow-grid {
     gap: 30px;
-    margin-bottom: 70px;
   }
 }
 
 @media (max-width: 768px) {
-  .steps-section {
+  .eco-adventure-section {
     padding: 80px 40px;
   }
   
-  .steps-header {
+  .eco-wizard-header {
     margin-bottom: 60px;
   }
   
-  .steps-title {
+  .earth-lover-title {
     font-size: clamp(2rem, 5vw, 2.5rem);
   }
   
-  .steps-subtext {
+  .eco-whisper-text {
     font-size: 1rem;
     margin: 1.5rem auto 0;
   }
   
-  .steps-grid {
+  .recycle-rainbow-grid {
     grid-template-columns: 1fr;
     gap: 25px;
-    margin-bottom: 60px;
   }
   
-  .step-card {
+  .eco-wonder-card {
     padding: 40px 30px;
-  }
-  
-  .steps-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .steps-btn {
-    justify-content: center;
-    min-width: 200px;
   }
 }
 
 @media (max-width: 480px) {
-  .steps-section {
+  .eco-adventure-section {
     padding: 60px 20px;
   }
   
-  .steps-title {
+  .earth-lover-title {
     font-size: 2rem;
   }
   
-  .steps-subtext {
+  .eco-whisper-text {
     font-size: 0.9rem;
   }
   
-  .step-card {
+  .eco-wonder-card {
     padding: 30px 25px;
   }
   
-  .step-icon {
-    font-size: 32px;
+  .eco-step-icon {
+    font-size: 36px;
   }
   
-  .step-number {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-    top: -12px;
-    right: 20px;
-  }
-  
-  .steps-btn {
-    padding: 14px 28px;
-    font-size: 0.9rem;
+  .floating-leaf {
+    font-size: 1.5rem;
   }
 }

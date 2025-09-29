@@ -5,21 +5,24 @@ import "./HowItWorks.css";
 const HowItWorks = () => {
   const steps = [
     {
-      icon: <FaUpload className="step-icon" />,
+      id: 1,
+      icon: <FaUpload className="eco-step-icon" />,
       title: "Upload Items",
       text: "Take a photo or upload images of your recyclable items and get instant AI-powered feedback and guidance.",
       buttonText: "Upload Now",
       buttonLink: "#upload"
     },
     {
-      icon: <FaRecycle className="step-icon" />,
+      id: 2,
+      icon: <FaRecycle className="eco-step-icon" />,
       title: "Get Guidance",
       text: "Receive personalized recycling instructions and tips to ensure proper waste management for your items.",
       buttonText: "Learn More",
       buttonLink: "#guidance"
     },
     {
-      icon: <FaMapMarkerAlt className="step-icon" />,
+      id: 3,
+      icon: <FaMapMarkerAlt className="eco-step-icon" />,
       title: "Find Recyclers",
       text: "Use our smart locator tool to discover the nearest recycling centers and drop-off points in your area.",
       buttonText: "Find Centers",
@@ -28,61 +31,45 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="steps-section">
-      <div className="steps-container">
+    <section className="eco-adventure-section">
+      <div className="planet-protector-container">
+        {/* Floating decorative elements */}
+        <div className="floating-leaf floating-leaf-1">🍃</div>
+        <div className="floating-leaf floating-leaf-2">🌿</div>
+        <div className="floating-leaf floating-leaf-3">🌱</div>
+        
         {/* Header */}
-        <div className="steps-header">
-          <span className="steps-tag">How It Works</span>
-          <h2 className="steps-title">
-            Transform your waste management<br />
-            in just three simple steps
+        <div className="eco-wizard-header">
+          <span className="green-badge">How It Works</span>
+          <h2 className="earth-lover-title">
+            Transform your waste into<br />
+            <span className="title-highlight">planet-saving power</span>
           </h2>
-          <p className="steps-subtext">
+          <p className="eco-whisper-text">
             Our intelligent approach simplifies recycling, making it accessible, 
             effective, and rewarding for everyone to contribute to a greener future.
           </p>
         </div>
 
         {/* Steps Grid */}
-        <div className="steps-grid">
+        <div className="recycle-rainbow-grid">
           {steps.map((step) => (
-            <div key={step.id} className="step-card">
-              <div className="step-number">{step.id}</div>
-              
-              <div className="step-icon-container">
+            <div key={step.id} className="eco-wonder-card">
+              <div className="icon-garden">
                 {step.icon}
+                <div className="pulse-ring"></div>
               </div>
               
-              <h3 className="step-title">{step.title}</h3>
+              <h3 className="step-magic-title">{step.title}</h3>
               
-              <p className="step-text">{step.text}</p>
+              <p className="eco-wisdom-text">{step.text}</p>
               
-              <a href={step.buttonLink} className="step-button">
+              <a href={step.buttonLink} className="green-glow-button">
                 {step.buttonText}
-                <span className="button-arrow">→</span>
+                <span className="magic-arrow">→</span>
               </a>
             </div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="steps-cta">
-          <div className="steps-cta-content">
-            <h3 className="steps-cta-title">Ready to Start Your Green Journey?</h3>
-            <p className="steps-cta-text">
-              Join thousands of users who are already making a difference with ASTRA. 
-              Start recycling smarter today and contribute to a sustainable future.
-            </p>
-            
-            <div className="steps-buttons">
-              <a href="#get-started" className="steps-btn green">
-                Get Started Now <span className="arrow">→</span>
-              </a>
-              <a href="#learn-more" className="steps-btn outline">
-                Watch Demo <span className="arrow">→</span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
