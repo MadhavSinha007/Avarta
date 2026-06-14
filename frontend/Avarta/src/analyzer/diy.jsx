@@ -1,11 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { Wrench, AlertCircle, RotateCcw } from 'lucide-react';
+import { Wrench, AlertCircle, RotateCcw, MapPin } from 'lucide-react';
 import './diy.css';
 
-const DIY = ({ wasteType, onBack, onSwitchToRecycle }) => {
+const DIY = ({ wasteType, onBack, onSwitchToRecycle, image }) => {
   const [diyGuide, setDiyGuide] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
+
+  // Map ML model output to readable names
+  const wasteTypeNames = {
+    'battery': 'Battery',
+    'biological': 'Biological Waste',
+    'brown-glass': 'Brown Glass',
+    'cardboard': 'Cardboard',
+    'clothes': 'Clothes',
+    'green-glass': 'Green Glass',
+    'metal': 'Metal',
+    'paper': 'Paper',
+    'plastic': 'Plastic',
+    'shoes': 'Shoes',
+    'trash': 'General Trash',
+    'white-glass': 'White Glass'
+  };
+
+  const displayName = wasteTypeNames[wasteType] || wasteType;
+
+  // IMPORTANT: Replace with your actual Gemini API Key
+  const GEMINI_API_KEY = 'AIzaSyD41-aNBtGJcefgamdt7H0bqfJ-ANKttlo';
+  const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   useEffect(() => {
     fetchDIYGuide();
@@ -16,112 +38,64 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle }) => {
     setError('');
     
     try {
-      // TODO: Replace with Google Gemini API
-      /*
-      const geminiResponse = await fetch('YOUR_GEMINI_API_ENDPOINT', {
+      console.log('Fetching DIY guide for:', displayName);
+      
+      const prompt = `Create a practical DIY guide for repurposing ${displayName} at home. Be creative but realistic.
+
+Provide a JSON response with this exact structure:
+{
+  "possible": true/false,
+  "title": "Creative project name",
+  "description": "Brief project description",
+  "difficulty": "Beginner/Intermediate/Advanced",
+  "time": "Estimated time required",
+  "materials": ["item1", "item2", "item3"],
+  "steps": ["Step 1 instructions", "Step 2 instructions", "Step 3 instructions"],
+  "message": "Only if not possible, explain why"
+}
+
+If ${displayName} is not suitable for DIY (like batteries, biological waste), set "possible": false and explain in "message".`;
+
+      const response = await fetch(GEMINI_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          wasteType: wasteType,
-          prompt: `Create a step-by-step DIY guide for repurposing ${wasteType} at home. 
-                   If not feasible, explain why and suggest recycling.`
+          contents: [{
+            parts: [{
+              text: prompt
+            }]
+          }]
         })
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`Gemini API error: ${response.status}`);
+      }
+
+      const data = await response.json();
       
-      const guide = await geminiResponse.json();
-      */
+      if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+        throw new Error('Invalid response from Gemini API');
+      }
       
-      // Mock Gemini API response
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const generatedText = data.candidates[0].content.parts[0].text;
       
-      const mockGuides = {
-        plastic: {
-          possible: true,
-          title: "Plastic Bottle Vertical Garden",
-          description: "Transform plastic bottles into a space-saving vertical garden",
-          difficulty: "Beginner",
-          time: "45 minutes",
-          materials: [
-            "2L plastic bottles",
-            "Scissors",
-            "Rope or wire",
-            "Potting soil",
-            "Seeds or small plants"
-          ],
-          steps: [
-            "Clean and remove labels from plastic bottles",
-            "Cut bottles horizontally, leaving one side attached as a hinge",
-            "Make drainage holes in the bottom",
-            "Fill with potting soil and plant your seeds",
-            "Attach bottles to a wall or fence using rope",
-            "Water carefully and watch your garden grow"
-          ]
-        },
-        paper: {
-          possible: true,
-          title: "Homemade Recycled Paper",
-          description: "Create new paper from paper waste",
-          difficulty: "Intermediate",
-          time: "2 hours + drying",
-          materials: [
-            "Shredded paper",
-            "Water",
-            "Blender",
-            "Screen frame",
-            "Sponges",
-            "Cloth"
-          ],
-          steps: [
-            "Soak shredded paper in water for 2 hours",
-            "Blend into a smooth pulp consistency",
-            "Spread pulp evenly on screen frame",
-            "Press out excess water with sponges",
-            "Transfer to cloth and let dry for 24-48 hours",
-            "Carefully peel off your new paper"
-          ]
-        },
-        metal: {
-          possible: true,
-          title: "Tin Can Herb Planters",
-          description: "Upcycle tin cans into charming herb planters",
-          difficulty: "Beginner",
-          time: "30 minutes",
-          materials: [
-            "Clean tin cans",
-            "Hammer and nail",
-            "Paint",
-            "Potting soil",
-            "Herb plants"
-          ],
-          steps: [
-            "Remove labels and clean cans thoroughly",
-            "Make drainage holes in bottom with hammer/nail",
-            "Paint cans in desired colors and patterns",
-            "Let paint dry completely",
-            "Fill with potting soil and plant herbs",
-            "Place in sunny spot and water regularly"
-          ]
-        },
-        biological_waste: {
-          possible: false,
-          message: "DIY projects aren't suitable for biological waste due to hygiene and decomposition concerns. Consider composting instead to create nutrient-rich soil for your garden."
-        },
-        kitchen_waste: {
-          possible: false,
-          message: "Kitchen waste is best repurposed through composting. You can create a simple compost bin to turn food scraps into valuable fertilizer for plants."
-        }
-      };
+      // Extract JSON from response
+      let jsonText = generatedText;
+      const jsonMatch = generatedText.match(/```json\n?([\s\S]*?)\n?```/);
+      if (jsonMatch) {
+        jsonText = jsonMatch[1];
+      }
       
-      const guide = mockGuides[wasteType] || {
-        possible: false,
-        message: "This type of waste is not suitable for DIY projects at home. Please consider recycling it properly."
-      };
-      
+      const guide = JSON.parse(jsonText);
       setDiyGuide(guide);
+      
     } catch (err) {
-      setError('Failed to load DIY guide. Please try again.');
+      console.error('DIY guide fetch error:', err);
+      setError(`Failed to load DIY guide: ${err.message}`);
     } finally {
       setIsLoading(false);
     }
@@ -134,13 +108,20 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle }) => {
           <button className="back-btn" onClick={onBack}>
             <RotateCcw size={24} />
           </button>
-          <h2>DIY Guide</h2>
-          <div style={{ width: '40px' }}></div>
+          <h2>Creative DIY Ideas</h2>
+        </div>
+        
+        <div className="image-section">
+          <img src={image} alt="Analyzed waste" className="analyzed-image" />
+          <div className="waste-type-badge">
+            Creating ideas for: {displayName}
+          </div>
         </div>
         
         <div className="loading-state">
           <div className="spinner-large"></div>
-          <p>Generating DIY ideas for {wasteType}...</p>
+          <p>Generating creative DIY ideas for your {displayName}...</p>
+          <p className="loading-sub">Using Gemini AI to create unique upcycling projects</p>
         </div>
       </div>
     );
@@ -153,13 +134,19 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle }) => {
           <button className="back-btn" onClick={onBack}>
             <RotateCcw size={24} />
           </button>
-          <h2>DIY Guide</h2>
-          <div style={{ width: '40px' }}></div>
+          <h2>Creative DIY Ideas</h2>
+        </div>
+        
+        <div className="image-section">
+          <img src={image} alt="Analyzed waste" className="analyzed-image" />
+          <div className="waste-type-badge">
+            Ideas for: {displayName}
+          </div>
         </div>
         
         <div className="error-state">
           <AlertCircle size={48} />
-          <h3>Error Loading Guide</h3>
+          <h3>Error Loading Ideas</h3>
           <p>{error}</p>
           <button className="retry-btn" onClick={fetchDIYGuide}>
             Try Again
@@ -175,15 +162,17 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle }) => {
         <button className="back-btn" onClick={onBack}>
           <RotateCcw size={24} />
         </button>
-        <h2>DIY Guide</h2>
-        <div style={{ width: '40px' }}></div>
+        <h2>Creative DIY Ideas</h2>
       </div>
 
-      <div className="waste-type-badge">
-        For: {wasteType.replace('_', ' ')}
+      <div className="image-section">
+        <img src={image} alt="Analyzed waste" className="analyzed-image" />
+        <div className="waste-type-badge">
+          Project for: {displayName}
+        </div>
       </div>
 
-      {diyGuide.possible ? (
+      {diyGuide && diyGuide.possible ? (
         <div className="diy-project">
           <div className="project-header">
             <Wrench size={32} />
@@ -206,7 +195,7 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle }) => {
           <div className="materials-section">
             <h4>Materials Needed</h4>
             <div className="materials-list">
-              {diyGuide.materials.map((material, index) => (
+              {diyGuide.materials && diyGuide.materials.map((material, index) => (
                 <div key={index} className="material-item">
                   {material}
                 </div>
@@ -217,7 +206,7 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle }) => {
           <div className="steps-section">
             <h4>Step-by-Step Instructions</h4>
             <div className="steps-list">
-              {diyGuide.steps.map((step, index) => (
+              {diyGuide.steps && diyGuide.steps.map((step, index) => (
                 <div key={index} className="step-item">
                   <div className="step-number">{index + 1}</div>
                   <div className="step-content">{step}</div>
@@ -225,14 +214,22 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle }) => {
               ))}
             </div>
           </div>
+
+          <div className="alternative-option">
+            <p>Prefer to recycle instead?</p>
+            <button className="recycle-option-btn" onClick={onSwitchToRecycle}>
+              <MapPin size={18} />
+              Find Recycling Centers
+            </button>
+          </div>
         </div>
       ) : (
         <div className="not-possible">
           <AlertCircle size={48} />
           <h3>DIY Not Recommended</h3>
-          <p>{diyGuide.message}</p>
+          <p>{diyGuide?.message || `This type of waste (${displayName}) is not suitable for DIY projects for safety or practical reasons.`}</p>
           <button className="recycle-btn" onClick={onSwitchToRecycle}>
-            Find Recycling Options
+            Find Recycling Options Instead
           </button>
         </div>
       )}
