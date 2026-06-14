@@ -26,7 +26,6 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle, image }) => {
   const displayName = wasteTypeNames[wasteType] || wasteType;
 
   // IMPORTANT: Replace with your actual Gemini API Key
-  const GEMINI_API_KEY = 'AIzaSyD41-aNBtGJcefgamdt7H0bqfJ-ANKttlo';
   const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   useEffect(() => {
