@@ -25,7 +25,8 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle, image }) => {
 
   const displayName = wasteTypeNames[wasteType] || wasteType;
 
-  // IMPORTANT: Replace with your actual Gemini API Key
+  // Read Gemini API key from environment (Vite) - do NOT hardcode secrets in source
+  const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
   const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   useEffect(() => {
@@ -36,6 +37,12 @@ const DIY = ({ wasteType, onBack, onSwitchToRecycle, image }) => {
     setIsLoading(true);
     setError('');
     
+    if (!GEMINI_API_KEY) {
+      setIsLoading(false);
+      setError('Gemini API key is not configured. Please set VITE_GEMINI_API_KEY in your environment.');
+      return;
+    }
+
     try {
       console.log('Fetching DIY guide for:', displayName);
       
