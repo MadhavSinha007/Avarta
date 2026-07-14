@@ -133,10 +133,10 @@ User Upload → Image Preprocessing → Model Prediction → Gemini API → DIY 
 
 ## 👨‍💻 Author
 
-**Madhav Sinha**
+**Madhav Sinha** - GitHub: @MadhavSinha007
+**Clarence Thomas** - GitHub: @CJ6989
+ 
 
-- GitHub: @MadhavSinha007
-- Project Repository: Avarta
 
 ## 🙏 Acknowledgments
 
